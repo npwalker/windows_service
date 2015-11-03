@@ -6,7 +6,7 @@ define windows_service (
 
   exec { "Modify ${service_name}" :
     provider => 'powershell',
-    command => "\$(Get-WmiObject Win32_service -filter \"name=\'${service_name}\'\").Change(\$null,\$null,\$null,\$null,\$null,\$false,\"${user_name}",\"${password}\")",
+    command => "\$(Get-WmiObject Win32_service -filter \"name=\'${service_name}\'\").Change(\$null,\$null,\$null,\$null,\$null,\$false,\"${user_name}\",\"${password}\")",
     unless  => "if ( \$(Get-WmiObject Win32_service -filter \"name=\'${service_name}\'\").StartName -eq \"${user_name}\" ) { exit 0 } Else { exit 1}",
     #logoutput => true,
   }
