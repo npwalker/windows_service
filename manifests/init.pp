@@ -1,6 +1,6 @@
 define windows_service (
   $service_name = $title, 
-  $user_name,
+  $username,
   $password
 ) {
 
